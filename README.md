@@ -18,15 +18,42 @@ Loaded Data are:
 - attendance
 
 And the following stats for each team:
-- ballPossession;
-- totalShots;
-- shotsOnGoal;
-- shotsMissedGoal;
-- savedShotsOnGoal;
-- corners;
-- freekicks;
-- fouls;
-- offsides;
+- ballPossession
+- totalShots
+- shotsOnGoal
+- shotsMissedGoal
+- savedShotsOnGoal
+- corners
+- freekicks
+- fouls
+- offsides
+
+### Usage:
+#### Loader
+Loads Matches, two possible Usages:
+- using the provided SimpleTMMatchBean
+    ```
+    LEAGUE leagueType = LEAGUE.BUNDESLIGA;
+    // LEAGUE leagueType = LEAGUE.PREMIER_LEAGUE;
+
+    List<List<SimpleTMMatchBean>> lists = Loader.loadData(leagueType, 2015, 1, 1, leagueType.getCountMatchdays());
+    
+    for (List<SimpleTMMatchBean> matchday : lists) {
+        for (SimpleTMMatchBean singleMatch : matchday) {
+            System.out.println(singleMatch.toString());
+        }
+    }
+    ```
+- using a List of your own Beans implementing the TMMatchBeanInterface
+    ```
+    LEAGUE leagueType = LEAGUE.BUNDESLIGA;
+    List<List<YourOwnBean>> lists = Loader.loadData(leagueType, 2015, 1, 1, leagueType.getCountMatchdays(), new MatchBeanFactory() {
+        @Override
+        public TMMatchBeanInterface createTMMatchBean() {
+            return new YourOwnBean();
+        }
+    });
+    ```
 
 ### Examples
 ```
@@ -58,37 +85,8 @@ SimpleTMMatchBean{
     savedShotsOnGoalHOME=3, cornersHOME=5, freekicksHOME=23, foulsHOME=19, offsidesHOME=0, 
     ballPossessionAWAY=48, totalShotsAWAY=7, shotsOnGoalAWAY=5, shotsMissedGoalAWAY=2, 
     savedShotsOnGoalAWAY=2, cornersAWAY=9, freekicksAWAY=19, foulsAWAY=22, offsidesAWAY=1
-    }
-
-
+}
 ```
-
-### Usage:
-#### Loader
-Loads Matches, two possible Usages:
-- using the provided SimpleTMMatchBean
-    ```
-    LEAGUE leagueType = LEAGUE.BUNDESLIGA;
-    // LEAGUE leagueType = LEAGUE.PREMIER_LEAGUE;
-
-    List<List<SimpleTMMatchBean>> lists = Loader.loadData(leagueType, 2015, 1, 1, leagueType.getCountMatchdays());
-    
-    for (List<SimpleTMMatchBean> matchday : lists) {
-        for (SimpleTMMatchBean singleMatch : matchday) {
-            System.out.println(singleMatch.toString());
-        }
-    }
-    ```
-- using a List of your own Beans implementing the TMMatchBeanInterface
-    ```
-    LEAGUE leagueType = LEAGUE.BUNDESLIGA;
-    List<List<YourOwnBean>> lists = Loader.loadData(leagueType, 2015, 1, 1, leagueType.getCountMatchdays(), new MatchBeanFactory() {
-        @Override
-        public TMMatchBeanInterface createTMMatchBean() {
-            return new YourOwnBean();
-        }
-    });
-    ```
     
 ### License
 This package is licensed under MIT license. See LICENSE for details.
