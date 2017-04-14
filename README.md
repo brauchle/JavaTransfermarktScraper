@@ -87,6 +87,17 @@ SimpleTMMatchBean{
     savedShotsOnGoalAWAY=2, cornersAWAY=9, freekicksAWAY=19, foulsAWAY=22, offsidesAWAY=1
 }
 ```
+
+#### Dependency via Gradle:
+```
+repositories {
+ maven { url 'https://jitpack.io' }
+}
+
+[...]
+
+compile 'com.github.brauchle:JavaTransfermarktScraper'
+```
     
 ### License
 This package is licensed under MIT license. See LICENSE for details.
