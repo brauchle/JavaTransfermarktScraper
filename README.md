@@ -29,8 +29,7 @@ And the following stats for each team:
 - offsides
 
 ### Usage:
-#### Loader
-Loads Matches, two possible Usages:
+Two possible Usages:
 - using the provided SimpleTMMatchBean
     ```
     LEAGUE leagueType = LEAGUE.BUNDESLIGA;
@@ -88,7 +87,7 @@ SimpleTMMatchBean{
 }
 ```
 
-#### Dependency via Gradle:
+### Dependency via Gradle:
 ```
 repositories {
  maven { url 'https://jitpack.io' }
@@ -96,7 +95,7 @@ repositories {
 
 [...]
 
-compile 'com.github.brauchle:JavaTransfermarktScraper'
+compile 'com.github.brauchle:JavaTransfermarktScraper:1.0.0'
 ```
     
 ### License
