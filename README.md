@@ -11,7 +11,6 @@ Loaded Data are:
 - teamNameAway
 - matchday
 - matchResult
-
 - goalsShotHome
 - goalsShotAway
 - goalsHalftimeHome
