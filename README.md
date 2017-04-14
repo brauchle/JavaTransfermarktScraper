@@ -95,7 +95,7 @@ repositories {
 
 [...]
 
-compile 'com.github.brauchle:JavaTransfermarktScraper:1.0.0'
+compile 'com.github.brauchle:JavaTransfermarktScraper:1.0.1'
 ```
     
 ### License
